@@ -54,6 +54,11 @@ func init() {
 		log.Println("not found CONVERT:", conf.Convert)
 		os.Exit(1)
 	}
+
+	if err := exec.Command(conf.Java, "-jar", conf.Disunity, "-h").Run(); err != nil {
+		log.Println("DISUNITY don't execute")
+		os.Exit(1)
+	}
 }
 
 func main() {
